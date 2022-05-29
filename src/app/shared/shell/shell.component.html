@@ -1,0 +1,73 @@
+<mat-sidenav-container class="sidenav-container">
+
+  <!-- SIDENAV -->
+
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+
+      <a mat-list-item routerLink="/" (click)="drawer.close()">Home</a>
+      <a mat-list-item routerLink="/login" (click)="drawer.close()">Login</a>
+      <a mat-list-item routerLink="/Utils" (click)="drawer.close()">Utils</a>
+      <a mat-list-item routerLink="/customers" (click)="drawer.close()">Clients</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+
+  <!-- TOP TOOLBAR-->
+
+    <mat-toolbar>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+
+
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="logo" routerLink="/">🔥 Liquid Metal</span>
+
+      <span class="fill-space"></span>
+      <div *ngIf="!(isHandset$ | async)">
+        <a mat-button routerLink="/Utils">🍱 Utils</a>
+        <a mat-button routerLink="/customers">⚡ Clients</a>
+        <a mat-button routerLink="/login">🔑 Login</a>
+
+      </div>
+
+      <!-- DROPDOWN MENU -->
+
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Fire">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+
+      <mat-menu #menu="matMenu">
+        <a mat-menu-item href="https://www.splashstock.fr">
+          <i>💻</i>
+          <span>Store</span>
+        </a>
+        <a mat-menu-item href="https://www.facebook.com/root.beetest/">
+          <i>💻</i>
+          <span>Facebook</span>
+        </a>
+        <a mat-menu-item href="https://twitter.com/UnityFx">
+          <i>💻</i>
+          <span>Twitter</span>
+        </a>
+        <a mat-menu-item href="https://www.tiktok.com/@ozz1ris">
+          <i>💻</i>
+          <span>Tiktok</span>
+        </a>
+      </mat-menu>
+    </mat-toolbar>
+
+    <!-- TRANSCLUSION -->
+    <ng-content></ng-content>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

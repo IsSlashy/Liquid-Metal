@@ -103,6 +103,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Liquid-Metal:build:production",
+            "firebaseProject": "liquid-metal-90f72",
+            "firebaseHostingSite": "liquid-metal-90f72"
+          }
         }
       }
     }

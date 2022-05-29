@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "liquid-metal-90f72": {
+      "hosting": {
+        "Liquid-Metal": [
+          "liquid-metal-90f72"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "liquid-metal-90f72"
+  }
+}
